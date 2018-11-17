@@ -4,6 +4,7 @@ import configparser
 import mechanicalsoup
 import os
 import re
+import requests
 
 def work():
     home = os.environ['HOME']
@@ -40,6 +41,12 @@ def work():
     text = re.sub(r'.*(國內數據.*)其他.*', r'\1', text, flags=re.DOTALL)
 
     text = '{} 的用量：\n'.format(uid) + text
+
+    requests.post('https://api.pushover.net/1/messages.json', data={
+        'token': pushover_api_token,
+        'user': pushover_user_token,
+        'message': text,
+    })
 
 if '__main__' == __name__:
     work()
