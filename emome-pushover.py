@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import configparser
+import mechanicalsoup
 import os
 
 def work():
@@ -14,6 +15,8 @@ def work():
     pushover_user_token = c['default']['pushover_user_token']
     pw = c['default']['pw']
     uid = c['default']['uid']
+
+    b = mechanicalsoup.StatefulBrowser()
 
 if '__main__' == __name__:
     work()
