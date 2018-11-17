@@ -18,5 +18,8 @@ def work():
 
     b = mechanicalsoup.StatefulBrowser()
 
+    url = 'https://member.cht.com.tw/HiReg/checkcookieservlet?version=1.0&curl=https://auth.emome.net/emome/membersvc/AuthServlet&siteid=76&sessionid=&channelurl=https://auth.emome.net/emome/&others=mobilebms&checksum=a2e0f826bd63084eae045041af9b6d57';
+    b.open(url)
+
 if '__main__' == __name__:
     work()
