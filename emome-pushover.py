@@ -3,6 +3,7 @@
 import configparser
 import mechanicalsoup
 import os
+import re
 
 def work():
     home = os.environ['HOME']
@@ -27,6 +28,13 @@ def work():
     b.submit_selected()
 
     url = 'https://bms.emome.net/proxy/mbms/service.jsp?leftmenu=bill&url=notPayBill.jsp'
+    b.open(url)
+
+    url = b.get_current_page().select('body')[0].attrs['onload']
+    url = re.sub(r"^location\.href='", '', url)
+    url = re.sub(r"';$", '', url)
+    url = 'https://bms.emome.net/proxy/mbms/' + url
+
     b.open(url)
 
 if '__main__' == __name__:
