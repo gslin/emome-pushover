@@ -36,6 +36,10 @@ def work():
     url = 'https://bms.emome.net/proxy/mbms/' + url
 
     b.open(url)
+    text = b.get_current_page().select('table[width="350"]')[0].text
+    text = re.sub(r'.*(國內數據.*)其他.*', r'\1', text, flags=re.DOTALL)
+
+    text = '{} 的用量：\n'.format(uid) + text
 
 if '__main__' == __name__:
     work()
