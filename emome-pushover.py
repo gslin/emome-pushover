@@ -10,5 +10,10 @@ def work():
     c = configparser.ConfigParser()
     c.read(f_conf)
 
+    pushover_api_token = c['default']['pushover_api_token']
+    pushover_user_token = c['default']['pushover_user_token']
+    pw = c['default']['pw']
+    uid = c['default']['uid']
+
 if '__main__' == __name__:
     work()
