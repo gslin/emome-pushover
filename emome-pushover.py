@@ -26,5 +26,8 @@ def work():
     b['pw'] = pw
     b.submit_selected()
 
+    url = 'https://bms.emome.net/proxy/mbms/service.jsp?leftmenu=bill&url=notPayBill.jsp'
+    b.open(url)
+
 if '__main__' == __name__:
     work()
