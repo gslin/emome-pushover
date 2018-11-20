@@ -38,7 +38,7 @@ def work():
 
     b.open(url)
     text = b.get_current_page().select('table[width="350"]')[0].text
-    text = re.sub(r'.*(國內數據.*)其他.*', r'\1', text, flags=re.DOTALL)
+    text = re.sub(r'.*(國內數據.*?)\s*其他.*', r'\1', text, flags=re.DOTALL)
 
     text = '{} 的用量：\n'.format(uid) + text
 
