@@ -1,6 +1,6 @@
 # emome-pushover
 
-Access mobile data usage from emome and send it to pushover.
+Access CHT's mobile data usage from emome and send it to pushover.
 
 ## License
 
